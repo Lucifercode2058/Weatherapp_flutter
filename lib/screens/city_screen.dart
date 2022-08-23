@@ -7,9 +7,24 @@ class CityScreen extends StatefulWidget {
 }
 
 class _CityScreenState extends State<CityScreen> {
+  String citynamed;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Container(
+        height: 50,
+        color: Colors.teal,
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 20),
+            child: Text(
+              'Dev@ Instagram:Rabean_subedi',style: TextStyle(
+              color: Colors.black,fontSize: 20,fontWeight: FontWeight.w900,
+            ),
+            ),
+          ),
+        ),
+      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -24,7 +39,9 @@ class _CityScreenState extends State<CityScreen> {
               Align(
                 alignment: Alignment.topLeft,
                 child: FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: Icon(
                     Icons.arrow_back_ios,
                     size: 50.0,
@@ -33,10 +50,24 @@ class _CityScreenState extends State<CityScreen> {
               ),
               Container(
                 padding: EdgeInsets.all(20.0),
-                child: null,
+                child: TextField(
+                  onChanged: (value){
+                    citynamed=value;
+                  },
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+
+                  ),
+                  decoration: dec,
+                ),
               ),
               FlatButton(
-                onPressed: () {},
+                onPressed: (
+                    
+                    ) {
+                  Navigator.pop(context,citynamed);
+                },
                 child: Text(
                   'Get Weather',
                   style: kButtonTextStyle,
